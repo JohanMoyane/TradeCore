@@ -1,0 +1,221 @@
+.logoarea{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 3.5%;
+    top: 31%;
+    transform: translate(-5%, -50%);
+}
+.logo{
+    image-rendering: pixelated;
+    height: 60px;
+    box-shadow: 0 0 10px black;
+}
+.title{
+    padding-left: 10px;
+}
+.searchbar{
+    width: 100%;
+    max-width: 400px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+    display: flex;
+    align-items: center;
+    background-color: aliceblue;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.searchbar input[type="text"] {
+    width: 90%; 
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+}
+.searchbar button[type="submit"] {
+    border: none;
+    image-rendering: pixelated;
+    background-image: url("../images/search\ icon.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    background-color: transparent;
+
+}
+.nav1{
+    position: absolute;
+    top: 34%;
+    right: 4%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    transform: translate(-11%, -50%);
+}
+
+.nav1 a{
+    text-decoration: none;
+    margin: 5px;
+    font-size: large;
+    color: black;
+    font-weight: bolder;
+}
+@keyframes float{
+    0%{
+
+    }
+    50%{
+    }
+    100%{
+        
+        background-color: #196275;
+        box-shadow: none;
+    }
+}
+
+.backdrop {
+    width: 95%;
+    max-width: 700px;
+    max-height: 250px;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+.offer{
+    text-align: center;
+    font-size: 29px;
+    color: white;
+    text-decoration: underline;
+}
+.areabg {
+    display: flex;
+    flex-direction: column;
+    image-rendering: pixelated;
+    background-image: url(../images/content\ trayv2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 2rem;
+    max-width: 100%;
+    min-height: 250px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.info {
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 20px black;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.itemBox {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    text-decoration: none;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.itemBox:hover{
+    animation-duration:0.2s;
+    animation-name: floatimg;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+@keyframes floatimg{
+    0%{
+
+    }
+    50%{
+    }
+    100%{
+        box-shadow: 0px 10px 30px black;
+        border-radius: 7px;
+    }
+}
+
+.content {
+    image-rendering: pixelated;
+    background-image: url(../images/Loginimg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    font-size: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+.borderbox{
+    position: relative;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+.frameOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 113px;
+    height: 113px;
+    image-rendering: pixelated  ;
+    background-image: url(../images/frame.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.content img {
+    height: 92px;
+    width: 92px;
+    position: absolute;
+    top: 10.5px;
+    left: 10.5px;
+
+}
+.content h2{
+    font-size: 24px;
+}
+
+.content p{
+    font-size: 15px;
+}
+
+@media screen and (max-width: 900px) {
+    .logoarea{
+        left: 10%;
+    }
+    .title{
+        display: none;
+    }
+    .searchbar{
+        width: 30%;
+    }
+    .backdrop{
+            max-width: 490px;
+    }
+    .areabg {
+        background-image: url(../images/loginimg\ test.png);
+        padding: 1rem;
+        min-width: 350px;
+        font-size: 17px;
+    }
+}

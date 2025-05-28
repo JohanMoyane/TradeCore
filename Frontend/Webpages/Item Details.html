@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style/GenStyle.css">
+        <link rel="stylesheet" href="../style/ItemStyle.css">
+    </head>
+    <body>
+        <main class="mid">
+            <div class="content">
+                <a href="Manage Items.html"><img src="../images/close Icon.png"></a>
+                <img class="itemimg" alt="item image error">
+                <img class="itemimgbg">
+            </div>
+            <div class="desc">
+                <h1 class="Username">Username is selling this item:</h1>
+                <h2 class="itemName"></h2>
+                <p class="itemDesc"></p>
+                <p class="itemPrice"></p>
+                <form class="message" method="post" action="../../Backend/Php/adminDelete.php">
+                    <input type="hidden" name="type" value="item_id">
+                    <input type="hidden" name="id" id="itemIdField">
+                    <button type="submit">Remove</button>
+                </form>
+                <p>Published:</p>
+            </div>
+        </main>
+        <script src="../../Backend/JavaScript/ConfirmData.js" defer></script>
+    </body>
+</html>

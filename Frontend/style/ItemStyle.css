@@ -1,0 +1,73 @@
+.mid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.desc{
+    background-image: url(../images/backgroundimgitem.png);
+    image-rendering: pixelated;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 45px;
+    padding-left: 50px;
+    flex: 1 1 30%;
+    box-shadow: 1px 1px 15px black;
+}
+.content{
+    position: relative;
+    height: 742px;
+    overflow: hidden;
+    flex: 1 1 30%;
+}
+.content a{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+}
+.itemimg {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content a img{
+    height: 50px;
+    box-shadow: 1px 1px 15px black;
+    border-radius: 25px;
+}
+
+.itemimgbg{
+    filter: blur(5px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.message{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.message textarea{
+    height: 200px;
+    border: 5px solid #636363;
+    background-color: #d3d3d3;
+    font-size: 20px;
+    resize: none;
+}
+.message button{
+    width: 40%;
+    align-self: center;  
+    height: 40px;
+    border: 2px solid #636363;
+    border-radius: 15px;
+    
+}
+.message button:hover{
+    box-shadow: 0px 0px 10px black;
+    cursor: pointer;
+}

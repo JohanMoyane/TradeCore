@@ -1,0 +1,79 @@
+.mid{
+    margin-left: 25px;
+    margin-right: 25px;
+    color: white;
+}
+.navimg{
+    height: 10rem;
+    background-image: url(../images/accountHeader.png);
+    box-shadow: 20px 0 0 black;
+}
+.headerimg{
+    position: absolute;
+    image-rendering: pixelated;
+    height: 50px;
+    max-width: 100%;
+    top: 34%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.Username{
+    display: flex;
+    flex-wrap: wrap;   
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 34%;
+    left: 5%;
+    transform: translate(-11%, -50%);
+}
+.nav1{
+    position: absolute;
+    top: 34%;
+    right: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    transform: translate(-11%, -50%);
+}
+.dashboard{     
+    margin-top :25px;
+    margin-left: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    flex-direction: row;
+    color: black;
+}
+
+.wishlistBoard, .publishBoard{
+    box-shadow: 0px 0px 50px black;
+    height: auto;
+    min-height: 300px;
+    padding: 5px;
+    width: auto;
+    min-width: 400px;
+    width: 650px;
+    border: 6px solid#a3a3a3 ;
+    background-color: #d3d3d3;
+}
+
+a{
+    text-decoration: none;
+    margin: 5px;
+    font-size: large;
+    color: black;
+    font-weight: bolder;
+}
+.content h1{
+    text-align: center;
+}
+
+.Username img{
+    image-rendering: pixelated;
+    border-radius: 100px;
+    height: 70px;
+}
+@media screen and (max-width:  1250px) {
+    .headerimg{display: none;}
+}

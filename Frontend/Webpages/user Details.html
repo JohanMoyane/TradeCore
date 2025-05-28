@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style/GenStyle.css">
+        <link rel="stylesheet" href="../style/ItemStyle.css">
+    </head>
+    <body>
+        <main class="mid">
+            <div class="content">
+                <a href="Manage Users.html"><img src="../images/close Icon.png"></a>
+                <img class="itemimg" alt="item image error">
+                <img class="itemimgbg">
+            </div>
+            <div class="desc">
+                <h1 class="Username"></h1><br>
+                <h2>Users details:</h2>
+                <p class="FullName"></p>
+                <p class="email"></p>
+                <p class="role"></p>
+                <form class="message" method="post" action="../../Backend/Php/adminDelete.php">
+                    <input type="hidden" name="type" value="user_id">
+                    <input type="hidden" name="id" id="itemIdField">
+                    <button type="submit">Remove</button>
+                </form>
+            </div>
+        </main>
+        <script src="../../Backend/JavaScript/confirmUserData.js" defer></script>
+    </body>
+</html>
