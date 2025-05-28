@@ -1,12 +1,11 @@
 <?php
 
-$env = parse_ini_file('.env');
+$env = parse_ini_file(".env");
 
-// Assign variables directly from $env array
-$host = $env["HOST"];
-$user = $env["USER"];
-$password = $env["PASSWORD"];
-$database = $env["DATABASE"];
+$host = $env["host"];
+$user = $env["user"];
+$password = $env["password"];
+$database = $env["database"];
 
 $conn = new mysqli($host, $user, $password, $database);
 
