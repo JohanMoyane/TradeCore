@@ -1,3 +1,3 @@
 <?php
-readfile("../../Frontend/Webpages/Index.html");
+readfile("Frontend/Webpages/Index.html");
 ?>
