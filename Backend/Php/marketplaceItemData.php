@@ -19,7 +19,7 @@ try {
             "short_desc"=> $item["short_Desc"],
             "item_desc"=> $item["item_Desc"],
             "item_price"=> "R". number_format($item["item_Price"],2),
-            "item_image" => "../../Backend/Php/imageRetriever.php?itemId=". $item["item_ID"],
+            "item_image" => "/Backend/Php/imageRetriever.php?itemId=". $item["item_ID"],
             "seller_id"=> $item["seller_ID"]
         ];
     }

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("../../Backend/Php/userData.php")
+    fetch("/Backend/Php/userData.php")
         .then(usersDatas => {
             if (!usersDatas.ok) {
                 throw new Error("Unauthorized access")
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const selectedUser = users.find(user => user.user_UID == userID)
                 
                 const image = document.querySelector(".itemimg")
-                image.src = "../images/profilePic.png"
+                image.src = "/Frontend/images/profilePic.png"
 
                 document.querySelector(".itemimgbg").style.backgroundColor = selectedUser.colour
 

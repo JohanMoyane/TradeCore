@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const helpCLink = document.querySelector(".subBar")
     const loginLink = document.querySelector(".sbutton")
 
-    fetch("../../Backend/Php/sessionData.php")
+    fetch("/Backend/Php/sessionData.php")
     .then(userDatas => {
         if (!userDatas.ok) {
         throw new Error("User not logged in")
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (loginLink) {
         loginLink.innerHTML = `<div style="display: flex; flex-wrap: wrap; flex-direction: row; align-items: center; position: absolute; top: 40%; right: 10px; transform: translate(-51%, -50%);">
-                <img src="../images/profilePic.png" style="image-rendering: pixelated; border-radius: 100px; height: 70px;background-color:${user.user_colour};">
+                <img src="/Frontend/images/profilePic.png" style="image-rendering: pixelated; border-radius: 100px; height: 70px;background-color:${user.user_colour};">
                 </div>`;
 
         helpCLink.remove()

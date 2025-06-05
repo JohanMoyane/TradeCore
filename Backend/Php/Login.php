@@ -24,13 +24,13 @@
                 $_SESSION["user_colour"] = $user["user_colour"];
                 switch ($user["role"]) {
                     case "admin":
-                        header("Location:  ../../Frontend/Webpages/AdminPage.html");
+                        header("Location:  /Frontend/Webpages/AdminPage.html");
                         break;
                     case "seller":
-                        header("Location: ../../Frontend/Webpages/Seller Page.html");
+                        header("Location: /Frontend/Webpages/Seller Page.html");
                         break;
                     case "buyer":
-                        header("Location: ../../Frontend/Webpages/Buyer Page.html");
+                        header("Location: /Frontend/Webpages/Buyer Page.html");
                         break;
                     default:
                         throw new Exception("Invalid role assigned.");

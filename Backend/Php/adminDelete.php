@@ -26,7 +26,7 @@ try {
     $stmt->bind_param("i", $id);
     $stmt->execute();
 
-    header("Location: ../../Frontend/Webpages/AdminPage.html");
+    header("Location: /Frontend/Webpages/AdminPage.html");
 
 } catch (Exception $error) {
     echo '<!DOCTYPE html>

@@ -1,8 +1,8 @@
-    fetch("../../Backend/Php/sessionData.php")
+    fetch("/Backend/Php/sessionData.php")
         .then(usersData => usersData.json())
         .then(data => {
             const role = data.role
-        return fetch("../../Backend/Php/marketplaceItemData.php")
+        return fetch("/Backend/Php/marketplaceItemData.php")
             .then(itemsData => itemsData.json())
             .then(items => {
 

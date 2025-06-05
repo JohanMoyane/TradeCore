@@ -40,7 +40,7 @@ try {
     $datainsert->send_long_data(4, $imageData);
     $datainsert->execute();
 
-    header("Location: ../../Frontend/Webpages/Seller Page.html");
+    header("Location: /Frontend/Webpages/Seller Page.html");
 } catch (Exception $error) {
     echo '<!DOCTYPE html>
     <html>

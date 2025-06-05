@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("../../Backend/Php/marketplaceItemData.php")
+    fetch("/Backend/Php/marketplaceItemData.php")
         .then(itemsDatas => {
             if (!itemsDatas.ok) {
                 throw new Error("Unauthorized access")
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return itemsDatas.json()
         })
         .then(items => {
-            fetch("../../Backend/Php/marketplaceSellerData.php")
+            fetch("/Backend/Php/marketplaceSellerData.php")
                 .then(sellersDatas => {
                     if (!sellersDatas.ok) {
                         throw new Error("Unauthorized access")

@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     let userID
-    fetch("../../Backend/Php/sessionData.php")
+    fetch("/Backend/Php/sessionData.php")
         .then(usersData => usersData.json())
         .then(data => {
             userID = data.user_id;
-            return fetch("../../Backend/Php/marketplaceItemData.php");
+            return fetch("/Backend/Php/marketplaceItemData.php");
         })
         .then(itemsDatas => {
             if (!itemsDatas.ok) {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const removeBtn = document.createElement("button");
                 removeBtn.textContent = "Remove";
                 removeBtn.addEventListener("click", () => {
-                        fetch("../../Backend/Php/removeItem.php", {
+                        fetch("/Backend/Php/removeItem.php", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"

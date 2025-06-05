@@ -6,7 +6,7 @@ try{
     $datainsert = $conn ->prepare("INSERT INTO wishlist (buyer_ID, item_ID) VALUES (?,?)");
     $datainsert->bind_param("ii",$senderID, $itemID);
     $datainsert->execute();
-    header("Location: ../../Frontend/Webpages/Marketplace.html");
+    header("Location: /Frontend/Webpages/Marketplace.html");
 
 }catch (Exception $error) {
     echo '<!DOCTYPE html>

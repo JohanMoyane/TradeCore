@@ -13,6 +13,6 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-header("Location: ../../Frontend/Webpages/Index.html");
+header("Location: /Frontend/Webpages/Index.html");
 exit;
 ?>  

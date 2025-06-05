@@ -20,7 +20,7 @@
         $buyerInsert->bind_param("i", $user_id);
         $buyerInsert->execute();
 
-        header("Location: ../../Frontend/Webpages/Login Page.html");
+        header("Location: /Frontend/Webpages/Login Page.html");
         exit();
     }  
     catch (mysqli_sql_exception $error) {

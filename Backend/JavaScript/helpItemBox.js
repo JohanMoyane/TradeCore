@@ -1,11 +1,11 @@
-fetch("../../Backend/Php/sessionData.php")
+fetch("/Backend/Php/sessionData.php")
     .then(userDatas => userDatas.json())
     .then(user => {
         const role = user.role
 
 const services=[
     {
-        sImage: "../images/email icon.png",
+        sImage: "/Frontend/images/email icon.png",
         link: (() => {
             if (role === null) {
                 return "Login Page.html";
@@ -18,14 +18,14 @@ const services=[
 
     },
     {
-        sImage: "../images/info icon.png",
+        sImage: "/Frontend/images/info icon.png",
         link: "About Page.html",
         service: "About Us" ,
         desc: "What are our goals?",
 
     },
     {
-        sImage: "../images/Home icon.png",
+        sImage: "/Frontend/images/Home icon.png",
         link: (() => {
             switch (role) {
                 case 'admin':

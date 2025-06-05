@@ -1,8 +1,8 @@
-fetch("../../Backend/Php/sessionData.php")
+fetch("/Backend/Php/sessionData.php")
     .then(usersData => usersData.json())
     .then(data => {
         const role = data.role
-    return fetch("../../Backend/Php/userData.php")
+    return fetch("/Backend/Php/userData.php")
         .then(userMData => userMData.json())
         .then(user => {
 
@@ -28,7 +28,7 @@ fetch("../../Backend/Php/sessionData.php")
                 borderBox.className = "borderbox"
 
                 const img = document.createElement("img")
-                img.src = "../images/profilePic.png"
+                img.src = "/Frontend/images/profilePic.png"
                 img.alt = "user picture"
                 
                 const frameOverlay = document.createElement("div")

@@ -1,17 +1,17 @@
 const Dashboard=[
     {
         link:"Manage Users.html",
-        Image:"../../Frontend/images/profilePic.png",
+        Image:"/Frontend/images/profilePic.png",
         Heading:"Manage users",
     },
     {
         link:"Manage Items.html",
-        Image:"../../Frontend/images/handbag.png",
+        Image:"/Frontend/Frontend/images/handbag.png",
         Heading:"Manage items",
     },
     {
         link:"Reports.html",
-        Image:"../../Frontend/images/Report.png",
+        Image:"/Frontend/Frontend/images/Report.png",
         Heading:"Generate Reports",
     }
     ]

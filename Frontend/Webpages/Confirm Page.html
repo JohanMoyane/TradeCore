@@ -7,14 +7,14 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="../images/mainlogo.png" type="image/png">
-        <link rel="stylesheet" href="../style/GenStyle.css">
-        <link rel="stylesheet" href="../style/ItemStyle.css">
+        <link rel="icon" href="/Frontend/images/mainlogo.png" type="image/png">
+        <link rel="stylesheet" href="/Frontend/style/GenStyle.css">
+        <link rel="stylesheet" href="/Frontend/style/ItemStyle.css">
     </head>
     <body>
         <main class="mid">
             <div class="content">
-                <a href="Marketplace.html"><img src="../images/close Icon.png"></a>
+                <a href="Marketplace.html"><img src="/Frontend/images/close Icon.png"></a>
                 <img class="itemimg" alt="item image error">
                 <img class="itemimgbg">
             </div>
@@ -23,7 +23,7 @@
                 <h2 class="itemName"></h2>
                 <p class="itemDesc"></p>
                 <p class="itemPrice"></p>
-                <form class="message" method="post" action="../../Backend/Php/messageAdder.php">
+                <form class="message" method="post" action="/Backend/Php/messageAdder.php">
                     <label for="message">if you intend to buy please contact the buyer:</label>
                     <textarea name="message" ></textarea>
                     <input type="hidden" name="item_id" id="itemIdField">
@@ -32,6 +32,6 @@
                 <p>Published:</p>
             </div>
         </main>
-        <script src="../../Backend/JavaScript/ConfirmData.js" defer></script>
+        <script src="/Backend/JavaScript/ConfirmData.js" defer></script>
     </body>
 </html>
