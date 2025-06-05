@@ -1,8 +1,8 @@
 <?php
 require "Database.php";
 header("Content-Type: application/json");
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 
 try {
@@ -31,6 +31,5 @@ try {
     echo json_encode($items);
 
 } catch (Exception $error) {
-    http_response_code(500);
     echo json_encode(["error: " => $error->getMessage()]);
 }

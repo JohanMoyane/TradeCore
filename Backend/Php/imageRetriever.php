@@ -14,7 +14,6 @@ $datainsert->execute();
 $datainsert->store_result();
 
 if ($datainsert->num_rows === 0) {
-    http_response_code(404);
     exit("Image not found.");
 }
 

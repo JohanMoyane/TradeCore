@@ -4,12 +4,12 @@ require "Database.php";
 
 try {
 
-    $email = $_POST['eText'];
-    $first_name = $_POST['fName'];
-    $last_name = $_POST['lName'];
-    $username = $_POST['uText'];
-    $password = password_hash($_POST['pText'], PASSWORD_BCRYPT);
-    $user_colour = "#" . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+    $email = $_POST["eText"];
+    $first_name = $_POST["fName"];
+    $last_name = $_POST["lName"];
+    $username = $_POST["uText"];
+    $password = password_hash($_POST["pText"], PASSWORD_BCRYPT);
+    $user_colour = "#" . substr(str_shuffle("ABCDEF0123456789"), 0, 6);
     $role = "admin";
 
     $datainsert = $conn->prepare("INSERT INTO users (user_email, first_name, last_name, username, user_password, user_colour, role) VALUES (?, ?, ?, ?, ?, ?, ?)");

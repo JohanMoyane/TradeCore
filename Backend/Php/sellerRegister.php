@@ -7,9 +7,9 @@ $case = false;
 
 try {
 
-    $email = trim($_POST['eText']);
-    $password = $_POST['pText'];
-    $nationality_id = (int) $_POST['idText'];
+    $email = trim($_POST["eText"]);
+    $password = $_POST["pText"];
+    $nationality_id = (int) $_POST["idText"];
 
     $datainsert = $conn->prepare("SELECT user_uniqueID, user_password FROM users WHERE user_email = ? FOR UPDATE");
     $datainsert->bind_param("s", $email);
@@ -23,7 +23,7 @@ try {
     if (!password_verify($password, $user['user_password'])) {
         throw new Exception("Incorrect password.");
     }
-    $user_id = (int) $user['user_uniqueID'];
+    $user_id = (int) $user["user_uniqueID"];
 
     $conn->begin_transaction();
     $case = true;
@@ -44,7 +44,7 @@ try {
     $datainsert->execute();
 
     $conn->commit();
-    include 'logout.php';
+    include "logout.php";
     exit;
 
 } catch (Exception $error) {

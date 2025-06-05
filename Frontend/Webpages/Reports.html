@@ -1,31 +1,28 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-    <title>Admin Reports</title>
-</head>
-<body>
-    <h1>Admin Dashboard Reports</h1>
-    <form action="admin_report.php" method="GET">
-        <fieldset>
-            <legend>Select Report Type</legend>
-            <label for="reportType">Report Type:</label>
-            <select id="reportType" name="reportType">
-                <option value="sales">Sales Summary</option>
-                <option value="users">User Registrations</option>
-                <option value="products">Product Listings</option>
-            </select>
-        </fieldset>
-
-        <fieldset>
-            <legend>Date Range</legend>
-            <label for="startDate">Start Date:</label>
-            <input type="date" id="startDate" name="startDate"><br><br>
-            <label for="endDate">End Date:</label>
-            <input type="date" id="endDate" name="endDate">
-        </fieldset>
-
-        <br>
-        <input type="submit" value="Generate Report">
-    </form>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Report Generator</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Admin Dashboard Reports</h1>
+        <form action="adminReport.php" method="GET">
+            <fieldset>
+                <legend>Select Report Type</legend>
+                <label for="reportType">Report Type:</label>
+                <select name="reportType">
+                    <option value="sellers">Total Sellers</option>
+                    <option value="buyers">Total Buyers</option>\
+                    <option value="products">Items Available</option>
+                </select>
+            </fieldset>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
 </html>
