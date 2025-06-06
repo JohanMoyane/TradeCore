@@ -148,7 +148,7 @@
 
 .content {
     image-rendering: pixelated;
-    background-image: url("/Frontend/images/Loginimg.png");
+    background-image: url("/Frontend/images/loginimg.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
