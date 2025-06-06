@@ -226,7 +226,7 @@
             max-width: 490px;
     }
     .areabg {
-        background-image: url(/Frontend/images/loginimgTest.png);
+        background-image: url("/Frontend/images/loginimgTest.png");
         padding: 1rem;
         min-width: 350px;
         font-size: 17px;
