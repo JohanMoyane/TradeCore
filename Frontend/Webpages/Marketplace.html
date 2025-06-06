@@ -22,6 +22,7 @@
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit"></button>
                 </form>
+            <button class="menuToggle" aria-label="Open menu"><img src="/Frontend/images/menupopup.png"></button>
             <nav class="nav1">
                 <a class="subBar" href="/Frontend/Webpages/Help Center.html">Help Center</a>
                 <a class="sbutton" href="#"></a>
@@ -44,5 +45,19 @@
         </nav>
         </footer>
         </main>
+        <script>
+            const menuToggle = document.querySelector('.menuToggle');
+            const nav = document.querySelector('.nav1');
+
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active')
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                nav.classList.remove('active');
+                }
+            });
+        </script>   
     </body>
 </html>
