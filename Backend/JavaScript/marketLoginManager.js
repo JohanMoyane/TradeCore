@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 case "buyer":
                     return "Buyer Page.html";
                 default:
+                    loginLink.innerHTML = "Login"
                     return "Login Page.html";
             }})()
         loginLink.href = link
