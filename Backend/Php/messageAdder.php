@@ -27,7 +27,7 @@ try {
     $datainsert->bind_param("iis", $senderID, $receiverID, $message);
     $datainsert->execute();
 
-    include("wishlistAdder.php");
+    include BASE_PATH . ("/Backend/Php/wishlistAdder.php");
 
 } catch (Exception $error) {
     echo '<!DOCTYPE html>
