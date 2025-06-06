@@ -13,9 +13,7 @@ node_modules/
 .idea/
 
 *.log
-*.sqlite
-*.bak
-*.tmp
+*.sql
 
 cache/
 tmp/
