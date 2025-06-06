@@ -45,7 +45,7 @@ try {
     $datainsert->execute();
 
     $conn->commit();
-    include BASE_PATH . ("/Backend/Php/Logout.php");
+    header("Location: /Backend/Php/Logout.php");
     exit;
 
 } catch (Exception $error) {
