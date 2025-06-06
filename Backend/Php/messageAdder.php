@@ -1,6 +1,7 @@
 <?php
 session_start();
-require("Database.php");
+define("BASE_PATH", dirname(__DIR__, 2));
+require (BASE_PATH . "/Backend/Php/Database.php");
 
 try {
     $senderID = $_SESSION["user_id"];
@@ -20,7 +21,7 @@ try {
         throw new Exception("No seller found for this item.");
     }
 
-    $receiverID = $sellerData['seller_ID'];
+    $receiverID = $sellerData["seller_ID"];
 
     $datainsert = $conn->prepare("INSERT INTO messages (sender_ID, receiver_ID, text_msg) VALUES (?, ?, ?)");
     $datainsert->bind_param("iis", $senderID, $receiverID, $message);

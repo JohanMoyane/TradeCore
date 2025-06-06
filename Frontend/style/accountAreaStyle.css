@@ -5,7 +5,7 @@
 }
 .navimg{
     height: 10rem;
-    background-image: url(../images/accountHeader.png);
+    background-image: url(/Frontend/images/accountHeader.png);
     box-shadow: 20px 0 0 black;
 }
 .headerimg{

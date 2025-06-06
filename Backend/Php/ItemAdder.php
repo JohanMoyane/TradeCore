@@ -1,6 +1,7 @@
 <?php
 session_start();
-require("Database.php");
+define("BASE_PATH", dirname(__DIR__, 2));
+require (BASE_PATH . "/Backend/Php/Database.php");
 
 try {
     $itemName = $_POST["itemName"];

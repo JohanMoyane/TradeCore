@@ -5,7 +5,7 @@
 }
 
 .desc{
-    background-image: url(../images/backgroundimgitem.png);
+    background-image: url(/Frontend/images/backgroundimgitem.png);
     image-rendering: pixelated;
     background-size: cover;
     background-repeat: no-repeat;
