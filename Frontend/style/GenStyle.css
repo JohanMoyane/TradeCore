@@ -21,7 +21,7 @@ html,body{
 }
 .navimg{
     image-rendering: pixelated;
-    background-image: url(/Frontend/images/navimg.png);
+    background-image: url("/Frontend/images/navimg.png");
     max-width: 100%;
     height: 8rem;
     background-position: bottom;
@@ -33,7 +33,7 @@ html,body{
 
 .navfootimg{
     image-rendering: pixelated;
-    background-image: url(/Frontend/images/backgroundimgfooter.png);
+    background-image: url("/Frontend/images/backgroundimgfooter.png");
     max-width: 100%;
     height: 7rem;
     background-position: top;

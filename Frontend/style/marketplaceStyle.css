@@ -37,7 +37,7 @@
 .searchbar button[type="submit"] {
     border: none;
     image-rendering: pixelated;
-    background-image: url(/Frontend/images/searchIcon.png);
+    background-image: url("/Frontend/images/searchIcon.png");
     background-repeat: no-repeat;
     background-size: contain;
     width: 26px;
