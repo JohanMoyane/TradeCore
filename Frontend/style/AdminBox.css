@@ -19,6 +19,15 @@
     justify-content: center;
     overflow: hidden;
 }
+.navA{
+    position: absolute;
+    top: 34%;
+    right: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    transform: translate(-11%, -50%);
+}
 
 .content {
     image-rendering: pixelated;
