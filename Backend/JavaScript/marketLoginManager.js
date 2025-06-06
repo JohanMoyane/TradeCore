@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
     .catch(error => {
-
+        console.log(error)
         if (loginLink) {
         loginLink.innerHTML = "Login"
         loginLink.href = "Login Page.html"

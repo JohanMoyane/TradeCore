@@ -6,12 +6,12 @@ const Dashboard=[
     },
     {
         link:"Manage Items.html",
-        Image:"/Frontend/Frontend/images/handbag.png",
+        Image:"/Frontend/images/handbag.png",
         Heading:"Manage items",
     },
     {
         link:"Reports.html",
-        Image:"/Frontend/Frontend/images/Report.png",
+        Image:"/Frontend/images/Report.png",
         Heading:"Generate Reports",
     }
     ]
