@@ -18,7 +18,7 @@ try {
             "user_UID" => $user["user_uniqueID"],
             "email" => $user["user_email"],
             "first_name" => $user["first_name"],
-            "last_name" => $user["Last_name"],
+            "last_name" => $user["last_name"],
             "username" => $user["username"],
             "colour" => $user["user_colour"],
             "role" => $user["role"]
