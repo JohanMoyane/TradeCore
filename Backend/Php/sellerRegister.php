@@ -45,7 +45,7 @@ try {
     $datainsert->execute();
 
     $conn->commit();
-    include "/Backend/Php/logout.php";
+    include "/Backend/Php/Logout.php";
     exit;
 
 } catch (Exception $error) {
