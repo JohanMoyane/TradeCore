@@ -8,51 +8,68 @@ fetch("../../Backend/Php/sessionData.php")
 
 
         const block = document.querySelector(".info")
+        const input = document.querySelector("input[name='search']")
+        const searcharea = document.querySelector(".searchbar")
 
-        items.forEach(item => {
-            const link = (() => {
-                if (!role) {
-                    return "Login Page.html"
-                } else {
-                    return `Confirm Page.html?item_id=${encodeURIComponent(item.item_id)}`
+        function showItems(filteredItems){
+            block.innerHTML =""
+        
 
-                }
-            })()
-            const anchor = document.createElement("a")
-            anchor.href = link
-            anchor.className = "itemBox"
+            filteredItems.forEach(item => {
+                const link = (() => {
+                    if (!role) {
+                        return "Login Page.html"
+                    } else {
+                        return `Confirm Page.html?item_id=${encodeURIComponent(item.item_id)}`
 
-            const content = document.createElement("div")
-            content.className = "content"
+                    }
+                })()
+                const anchor = document.createElement("a")
+                anchor.href = link
+                anchor.className = "itemBox"
 
-            const borderBox = document.createElement("div")
-            borderBox.className = "borderbox"
+                const content = document.createElement("div")
+                content.className = "content"
 
-            const img = document.createElement("img")
-            img.src = item.item_image
-            img.alt = "seller picture"
+                const borderBox = document.createElement("div")
+                borderBox.className = "borderbox"
 
-            const frameOverlay = document.createElement("div")
-            frameOverlay.className = "frameOverlay"
+                const img = document.createElement("img")
+                img.src = item.item_image
+                img.alt = "seller picture"
 
-            borderBox.appendChild(img)
-            borderBox.appendChild(frameOverlay)
+                const frameOverlay = document.createElement("div")
+                frameOverlay.className = "frameOverlay"
 
-            const itemName = document.createElement("h2")
-            itemName.textContent = item.item_name
+                borderBox.appendChild(img)
+                borderBox.appendChild(frameOverlay)
 
-            const itemDesc = document.createElement("p")
-            itemDesc.textContent = item.short_desc
+                const itemName = document.createElement("h2")
+                itemName.textContent = item.item_name
 
-            const itemPrice = document.createElement("p")
-            itemPrice.textContent = item.item_price
+                const itemDesc = document.createElement("p")
+                itemDesc.textContent = item.short_desc
 
-            content.appendChild(borderBox)
-            content.appendChild(itemName)
-            content.appendChild(itemDesc)
-            content.appendChild(itemPrice)
-            anchor.appendChild(content)
-            block.appendChild(anchor)
+                const itemPrice = document.createElement("p")
+                itemPrice.textContent = item.item_price
+
+                content.appendChild(borderBox)
+                content.appendChild(itemName)
+                content.appendChild(itemDesc)
+                content.appendChild(itemPrice)
+                anchor.appendChild(content)
+                block.appendChild(anchor)
+            })
+        }
+        showItems(items)
+        searcharea.addEventListener("submit", function(event){
+            event.preventDefault()
+            const query = input.value.trim().toLowerCase()
+
+            const filtered = items.filter(item =>
+                item.item_name.toLowerCase().includes(query) || item.short_desc.toLowerCase().includes(query)
+            )
+            showItems(filtered)
         })
     })})
     .catch(error => {

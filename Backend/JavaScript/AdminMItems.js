@@ -1,20 +1,27 @@
-    fetch("/Backend/Php/sessionData.php")
-        .then(usersData => usersData.json())
-        .then(data => {
-            const role = data.role
-        return fetch("/Backend/Php/marketplaceItemData.php")
-            .then(itemsData => itemsData.json())
-            .then(items => {
+fetch("../../Backend/Php/sessionData.php")
+    .then(usersData => usersData.json())
+    .then(data => {
+        const role = data.role
+    return fetch("/Backend/Php/marketplaceItemData.php")
+        .then(itemsData => itemsData.json())
+        .then(items => {
 
 
-            const block = document.querySelector(".info")
+        const block = document.querySelector(".info")
+        const input = document.querySelector("input[name='search']")
+        const searcharea = document.querySelector(".searchbar")
 
-            items.forEach(item => {
+        function showItems(filteredItems){
+            block.innerHTML =""
+        
+
+            filteredItems.forEach(item => {
                 const link = (() => {
-                    if (role == "admin") {
-                        return `Item Details.html?item_id=${encodeURIComponent(item.item_id)}`
+                    if (!role) {
+                        return "Login Page.html"
                     } else {
-                        return "Login Page.html";
+                        return `Item Details.html?item_id=${encodeURIComponent(item.item_id)}`
+
                     }
                 })()
                 const anchor = document.createElement("a")
@@ -53,7 +60,18 @@
                 anchor.appendChild(content)
                 block.appendChild(anchor)
             })
-        })})
-        .catch(error => {
-        console.error("Error fetching or rendering items:", error);
-    });
+        }
+        showItems(items)
+        searcharea.addEventListener("submit", function(event){
+            event.preventDefault()
+            const query = input.value.trim().toLowerCase()
+
+            const filtered = items.filter(item =>
+                item.item_name.toLowerCase().includes(query) || item.short_desc.toLowerCase().includes(query)
+            )
+            showItems(filtered)
+        })
+    })})
+    .catch(error => {
+    console.error("Error fetching or rendering items:", error)
+});

@@ -8,8 +8,13 @@ fetch("/Backend/Php/sessionData.php")
 
 
         const block = document.querySelector(".info")
-
-        user.forEach(user => {
+        const input = document.querySelector("input[name='search']")
+        const searcharea = document.querySelector(".searchbar")  
+        
+        function showUsers(filteredUsers){
+            block.innerHTML =""
+            
+        filteredUsers.forEach(user => {
             const link = (() => {
                 if (role == "admin") {
                     return `user Details.html?user_id=${encodeURIComponent(user.user_UID)}`
@@ -44,6 +49,21 @@ fetch("/Backend/Php/sessionData.php")
                 anchor.appendChild(content)
                 block.appendChild(anchor)
         })
+    }
+
+    showUsers(users)
+
+    searcharea.addEventListener("submit", function (event){
+
+        event.preventDefault()
+        const query = input.value.trim().toLowerCase()
+
+        const filtered = users.filter(user =>
+            user.username.toLowerCase().includes(query)
+        )
+        showUsers(filtered)
+    })
+
     })})
     .catch(error => {
     console.error("Error fetching or rendering users:", error);
