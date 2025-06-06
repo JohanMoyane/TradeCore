@@ -8,9 +8,9 @@ const services=[
         sImage: "/Frontend/images/emailIcon.png",
         link: (() => {
             if (role === null) {
-                return "Login Page.html";
+                return "Login Page.html"
             } else {
-                return "Contact Page.html";
+                return "Contact Page.html"
             }
         })(),
         service: "Contact Us" ,
@@ -29,13 +29,13 @@ const services=[
         link: (() => {
             switch (role) {
                 case 'admin':
-                    return "AdminPage.html";
+                    return "AdminPage.html"
                 case 'seller':
-                    return "Seller Page.html";
+                    return "Seller Page.html"
                 case 'buyer':
-                    return "Buyer Page.html";
+                    return "Buyer Page.html"
                 default:
-                    return "Index.html";
+                    return "Index.html"
             }
         })(),
         service: "Return to the Main Menu" ,

@@ -12,7 +12,7 @@ fetch("/Backend/Php/sessionData.php")
         user.forEach(user => {
             const link = (() => {
                 if (role == "admin") {
-                    return `user Details.html?user_id=${encodeURIComponent(user.user_UID)}`;
+                    return `user Details.html?user_id=${encodeURIComponent(user.user_UID)}`
                 } else {
                     return "Login Page.html";
                 }

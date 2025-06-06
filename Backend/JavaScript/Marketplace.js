@@ -12,9 +12,9 @@ fetch("../../Backend/Php/sessionData.php")
         items.forEach(item => {
             const link = (() => {
                 if (!role) {
-                    return "Login Page.html";
+                    return "Login Page.html"
                 } else {
-                    return `Confirm Page.html?item_id=${encodeURIComponent(item.item_id)}`;
+                    return `Confirm Page.html?item_id=${encodeURIComponent(item.item_id)}`
 
                 }
             })()
@@ -56,5 +56,5 @@ fetch("../../Backend/Php/sessionData.php")
         })
     })})
     .catch(error => {
-    console.error("Error fetching or rendering items:", error);
+    console.error("Error fetching or rendering items:", error)
 });

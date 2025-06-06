@@ -50,18 +50,18 @@
         <script src="/Backend/JavaScript/publishedItems.js"></script>
         <script src="/Backend/JavaScript/wishlistedItems.js"></script>
         <script>
-            const menuToggle = document.querySelector('.menuToggle');
-            const nav = document.querySelector('.nav1');
+            const menuToggle = document.querySelector(".menuToggle");
+            const nav = document.querySelector(".nav1");
 
-            menuToggle.addEventListener('click', () => {
-                nav.classList.toggle('active')
-            });
+            menuToggle.addEventListener("click", () => {
+                nav.classList.toggle("active")
+            })
 
-            document.addEventListener('click', (e) => {
-                if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-                nav.classList.remove('active');
+            document.addEventListener("click", (clicker) => {
+                if (!nav.contains(clicker.target) && !menuToggle.contains(clicker.target)) {
+                nav.classList.remove("active")
                 }
-            });
+            })
         </script>   
     </body>
 </html>

@@ -22,14 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const link = (() => {
             switch (role) {
                 case "admin":
-                    return "AdminPage.html";
+                    return "AdminPage.html"
                 case "seller":
-                    return "Seller Page.html";
+                    return "Seller Page.html"
                 case "buyer":
-                    return "Buyer Page.html";
+                    return "Buyer Page.html"
                 default:
                     loginLink.innerHTML = "Home"
-                    return "Index.html";
+                    return "Index.html"
             }})()
         loginLink.href = link
         }

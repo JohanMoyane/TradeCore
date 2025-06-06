@@ -12,7 +12,7 @@
             items.forEach(item => {
                 const link = (() => {
                     if (role == "admin") {
-                        return `Item Details.html?item_id=${encodeURIComponent(item.item_id)}`;
+                        return `Item Details.html?item_id=${encodeURIComponent(item.item_id)}`
                     } else {
                         return "Login Page.html";
                     }
