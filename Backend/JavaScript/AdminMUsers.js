@@ -1,10 +1,11 @@
+document.addEventListener("DOMContentLoaded", () => {
 fetch("/Backend/Php/sessionData.php")
     .then(usersData => usersData.json())
     .then(data => {
         const role = data.role
     return fetch("/Backend/Php/userData.php")
         .then(userMData => userMData.json())
-        .then(user => {
+        .then(users => {
 
 
         const block = document.querySelector(".info")
@@ -66,5 +67,6 @@ fetch("/Backend/Php/sessionData.php")
 
     })})
     .catch(error => {
-    console.error("Error fetching or rendering users:", error);
-});
+    console.error("Error fetching or rendering users:", error)
+})
+})

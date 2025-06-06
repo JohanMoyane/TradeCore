@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 fetch("../../Backend/Php/sessionData.php")
     .then(usersData => usersData.json())
     .then(data => {
@@ -74,4 +75,5 @@ fetch("../../Backend/Php/sessionData.php")
     })})
     .catch(error => {
     console.error("Error fetching or rendering items:", error)
-});
+})
+})
