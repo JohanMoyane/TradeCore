@@ -37,7 +37,7 @@
 .searchbar button[type="submit"] {
     border: none;
     image-rendering: pixelated;
-    background-image: url("/Frontend/images/search\ icon.png");
+    background-image: url(/Frontend/images/searchIcon.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 26px;
@@ -94,7 +94,7 @@
     display: flex;
     flex-direction: column;
     image-rendering: pixelated;
-    background-image: url(/Frontend/images/content\ trayv2.png);
+    background-image: url("/Frontend/images/contentTrayv2.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -148,7 +148,7 @@
 
 .content {
     image-rendering: pixelated;
-    background-image: url(/Frontend/images/Loginimg.png);
+    background-image: url("/Frontend/images/Loginimg.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -213,7 +213,7 @@
             max-width: 490px;
     }
     .areabg {
-        background-image: url(/Frontend/images/loginimg\ test.png);
+        background-image: url(/Frontend/images/loginimgTest.png);
         padding: 1rem;
         min-width: 350px;
         font-size: 17px;

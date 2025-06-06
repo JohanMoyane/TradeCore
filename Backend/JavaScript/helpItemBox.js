@@ -5,7 +5,7 @@ fetch("/Backend/Php/sessionData.php")
 
 const services=[
     {
-        sImage: "/Frontend/images/email icon.png",
+        sImage: "/Frontend/images/emailIcon.png",
         link: (() => {
             if (role === null) {
                 return "Login Page.html";
@@ -18,14 +18,14 @@ const services=[
 
     },
     {
-        sImage: "/Frontend/images/info icon.png",
+        sImage: "/Frontend/images/infoIcon.png",
         link: "About Page.html",
         service: "About Us" ,
         desc: "What are our goals?",
 
     },
     {
-        sImage: "/Frontend/images/Home icon.png",
+        sImage: "/Frontend/images/HomeIcon.png",
         link: (() => {
             switch (role) {
                 case 'admin':
