@@ -15,7 +15,7 @@ try {
 
     if ($user = $result->fetch_assoc()) {
         if (password_verify($password, $user['user_password'])) {
-
+            session_regenerate_id(true);
             $_SESSION["user_id"] = $user["user_uniqueID"];
             $_SESSION["user_email"]= $user["user_email"];
             $_SESSION["first_name"]= $user["first_name"];
