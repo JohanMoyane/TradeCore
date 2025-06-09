@@ -1,45 +1,68 @@
-const sampleData = {
-  users: [/* your users array */],
-  buyers: [/* your buyers array */],
-  sellers: [/* your sellers array */],
-  administrator: [/* your administrator array */],
-  messages: [/* your messages array */],
-  item: [/* your item array */],
-  wishlist: [/* your wishlist array */]
-};
+document.addEventListener("DOMContentLoaded", () => {
+    const infoBox = document.querySelector(".info")
 
-// Generate summary per table
-function getSummaryContent(table, data) {
-  switch (table) {
-    case "users":
-      return { label: "Total Users", value: data.length };
-    case "buyers":
-      return { label: "Total Buyers", value: data.length };
-    case "sellers":
-      return { label: "Total Sellers", value: data.length };
-    case "administrator":
-      return { label: "Total Admins", value: data.length };
-    case "messages":
-      return { label: "Messages Sent", value: data.length };
-    case "item":
-      const totalSales = data.reduce((sum, item) => sum + (item.item_Price || 0), 0).toFixed(2);
-      return { label: "Estimated Sales", value: `R${totalSales}` };
-    case "wishlist":
-      return { label: "Wishlist Entries", value: data.length };
-    default:
-      return { label: table, value: "N/A" };
-  }
-}
+    const endpoints = {
+        users: "/Backend/Php/getUsers.php",
+        item: "/Backend/Php/getItems.php",
+        wishlist: "/Backend/Php/getWishlist.php"
+    }
 
-    const block = document.querySelector(".info")
+    const results = []
 
-    infos.forEach(info=>{
-    block.innerHTML +=`
-    <div class="itemBox">
-        <div class="content">
-            <h1>${info.Heading}</h1>
-            <p>${info.Description}</p>
-        </div>
-    </div>
-    `
+    (async () => {
+        for (const [table, url] of Object.entries(endpoints)) {
+            try {
+                const fetchingData = await fetch(url)
+                const data = await fetchingData.json()
+                const entry = processTableData(table, data)
+                results.push(entry)
+            } catch (error) {
+                console.error(`Failed to load ${table}:`, error)
+                results.push({ label: `Error loading ${table}`, value: "N/A" })
+            }
+        }
+
+        results.forEach(GeneratedInfo => {
+            const box = document.createElement("div")
+            box.className = "itemBox infoBox"
+
+            const content = document.createElement("div")
+            content.className = "content"
+
+            const heading = document.createElement("h1")
+            heading.className = "infoHeading"
+            heading.textContent = GeneratedInfo.label
+
+            const value = document.createElement("p")
+            value.className = "infoText"
+            value.textContent = GeneratedInfo.value
+
+            content.appendChild(heading)
+            content.appendChild(value)
+            box.appendChild(content)
+            infoBox.appendChild(box)
+        })
+    })()
+    function processTableData(table, data) {
+        switch (table) {
+            case "users":
+                return { label: "Total Users", value: data.length }
+            case "buyers":
+                return { label: "Total Buyers", value: data.filter(user => user.role === "buyer").length }
+            case "sellers":
+                return { label: "Total Sellers", value: data.filter(user => user.role === "seller").length }
+            case "administrator":
+                return { label: "Total Admins", value: data.filter(user => user.role === "administrator").length }
+            case "item":
+                const totalSales = data.reduce((sum, item) => {
+                    const price = parseFloat(item.item_price.replace(/[^\d.]/g, ""))
+                    return sum + (isNaN(price) ? 0 : price)
+                }, 0).toFixed(2)
+                return { label: "Estimated Sale potential", value: `R${totalSales}` }
+            case "wishlist":
+                return { label: "Wishlist Entries", value: data.length }
+            default:
+                return { label: table, value: "N/A" }
+        }
+    }
 })
