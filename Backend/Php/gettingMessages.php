@@ -6,7 +6,7 @@ try{
 $sender = $_GET["sender_ID"];
 $receiver = $_GET["receiver_ID"];
 
-$stdatainsert = $conn->prepare("SELECT sender_ID, receiver_ID, text_msg FROM messages WHERE (sender_ID = ? AND receiver_ID = ?) OR (sender_ID = ? AND receiver_ID = ?) ORDER BY message_ID ASC");
+$datainsert = $conn->prepare("SELECT sender_ID, receiver_ID, text_msg FROM messages WHERE (sender_ID = ? AND receiver_ID = ?) OR (sender_ID = ? AND receiver_ID = ?) ORDER BY message_ID ASC");
 $datainsert->bind_param("iiii", $sender, $receiver, $receiver, $sender);
 $datainsert ->execute();
 $msgresult = $datainsert->get_result();
