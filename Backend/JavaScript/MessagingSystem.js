@@ -1,119 +1,68 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let currentUser = null
-    let selectedUser = null
-    let usersMap = {}
+    const infoBox = document.querySelector(".info")
 
-    const userList = document.querySelector(".userList")
-    const chatTitle = document.querySelector(".titleText")
-    const messageBox = document.querySelector(".messageBox")
-    const messageInput = document.querySelector(".messageInput")
-    const sendBtn = document.getElementById("sendBtn")
-
-    fetch("/Backend/Php/sessionData.php")
-        .then(usersData => usersData.json())
-        .then(data => {
-            if (!data.user_id) {
-                throw new Error("No session user.")
-            }
-            currentUser = data
-            return fetch("/Backend/Php/userData.php")
-        })
-        .then(usersData => usersData.json())
-        .then(async users => {
-            for (const user of users) {
-                console.log(user)
-                usersMap[user.user_UID] = user
-                if (user.user_UID == currentUser.user_id) continue
-
-                const res = await fetch(`/Backend/Php/gettingMessages.php?sender_ID=${currentUser.user_id}&receiver_ID=${user.user_UID}`)
-                const messages = await res.json()
-
-                if (!messages.length) continue
-
-                const li = document.createElement("li")
-
-                const pfp = document.createElement("img")
-                pfp.src = "/Frontend/images/profilePic.png"
-                pfp.alt = "user picture"
-                pfp.style.backgroundColor = user.colour
-                pfp.style.width = "50px"
-                pfp.style.height = "50px"
-                pfp.style.borderRadius = "100px"
-                pfp.style.imageRendering = "pixelated"
-
-
-                li.appendChild(pfp)
-                li.appendChild(document.createTextNode(" " + user.username))
-
-                li.addEventListener("click", () => {
-                    selectedUser = user.user_UID
-                    chatTitle.textContent = `Chat with ${user.username}`
-                    loadMessages(currentUser.user_id, selectedUser)
-                })
-
-                userList.appendChild(li)
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error)
-            alert("Could not load users.")
-        })
-
-    function loadMessages(senderId, receiverId) {
-        messageBox.innerHTML = ""
-
-        fetch(`/Backend/Php/gettingMessages.php?sender_ID=${senderId}&receiver_ID=${receiverId}`)
-            .then(res => res.json())
-            .then(messages => {
-                messages.forEach(msg => {
-                    const msgDiv = document.createElement("div")
-                    const sender = usersMap[msg.sender_ID]
-                    const isCurrentUser = msg.sender_ID == currentUser.user_id
-
-                    msgDiv.className = `message ${isCurrentUser ? "sent" : "received"}`
-                    msgDiv.innerHTML = `
-                        <div class="msgHeader">
-                            <img src="/Frontend/images/profilePic.png" style="background-color:${sender.colour}; height:70px;border-radius:100px" alt="MissingProfile" class="msgPfp">
-                        </div>
-                        <div class="msgText">${msg.text_msg}</div>
-                    `
-                    messageBox.appendChild(msgDiv)
-                })
-                messageBox.scrollTop = messageBox.scrollHeight
-            })
-            .catch(error => {
-                console.error("Error loading messages:", error)
-                alert("Could not load messages.")
-            })
+    const endpoints = {
+        users: "/Backend/Php/getUsers.php",
+        item: "/Backend/Php/getItems.php",
+        wishlist: "/Backend/Php/getWishlist.php"
     }
 
-    sendBtn.addEventListener("click", () => {
-        const text = messageInput.value.trim()
-        if (!text || !selectedUser) {
-            alert("Select a user and enter a message.")
-            return
+    const results = []
+
+    (async () => {
+        for (const [table, url] of Object.entries(endpoints)) {
+            try {
+                const fetchingData = await fetch(url)
+                const data = await fetchingData.json()
+                const entry = processTableData(table, data)
+                results.push(entry)
+            } catch (error) {
+                console.error(`Failed to load ${table}:`, error)
+                results.push({ label: `Error loading ${table}`, value: "N/A" })
+            }
         }
 
-        fetch("/Backend/Php/sendingMessages.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams({
-                receiver_id: selectedUser,
-                message: text
-            })
+        results.forEach(GeneratedInfo => {
+            const box = document.createElement("div")
+            box.className = "itemBox infoBox"
+
+            const content = document.createElement("div")
+            content.className = "content"
+
+            const heading = document.createElement("h1")
+            heading.className = "infoHeading"
+            heading.textContent = GeneratedInfo.label
+
+            const value = document.createElement("p")
+            value.className = "infoText"
+            value.textContent = GeneratedInfo.value
+
+            content.appendChild(heading)
+            content.appendChild(value)
+            box.appendChild(content)
+            infoBox.appendChild(box)
         })
-        .then(usersData => usersData.json())
-        .then(callback => {
-            if (callback.success) {
-                loadMessages(currentUser.user_id, selectedUser)
-                messageInput.value = ""
-            } else {
-                alert("Message failed.")
-            }
-        })
-        .catch(error => {
-            console.error("Error sending message:", error)
-            alert("Error sending message.")
-        })
-    })
+    })()
+    function processTableData(table, data) {
+        switch (table) {
+            case "users":
+                return { label: "Total Users", value: data.length }
+            case "buyers":
+                return { label: "Total Buyers", value: data.filter(u => u.role === "buyer").length }
+            case "sellers":
+                return { label: "Total Sellers", value: data.filter(u => u.role === "seller").length }
+            case "administrator":
+                return { label: "Total Admins", value: data.filter(u => u.role === "administrator").length }
+            case "item":
+                const totalSales = data.reduce((sum, item) => {
+                    const price = parseFloat(item.item_price.replace(/[^\d.]/g, ""))
+                    return sum + (isNaN(price) ? 0 : price)
+                }, 0).toFixed(2)
+                return { label: "Estimated Sale potential", value: `R${totalSales}` }
+            case "wishlist":
+                return { label: "Wishlist Entries", value: data.length }
+            default:
+                return { label: table, value: "N/A" }
+        }
+    }
 })

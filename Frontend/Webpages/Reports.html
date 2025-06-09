@@ -4,25 +4,26 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Report Generator</title>
+        <title>Reoports</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="icon" href="/Frontend/images/mainlogo.png" type="image/png">
+        <link rel="stylesheet" href="/Frontend/style/GenStyle.css">
+        <link rel="stylesheet" href="/Frontend/style/reportStyle.css">        
     </head>
     <body>
-        <h1>Admin Dashboard Reports</h1>
-        <form action="/Backend/Php/adminReport.php" method="GET">
-            <fieldset>
-                <legend>Select Report Type</legend>
-                <label for="reportType">Report Type:</label>
-                <select name="reportType">
-                    <option value="sellers">Total Sellers</option>
-                    <option value="buyers">Total Buyers</option>\
-                    <option value="products">Items Available</option>
-                </select>
-            </fieldset>
-            <br>
-            <button type="submit">Submit</button>
-        </form>
+        <header class="head">
+            <nav class="navimg">
+                <img class="headerimg" src="/Frontend/images/logoTitlet.png" alt="TradeCore"> 
+                <nav class="nav1">
+                    <a class="sbutton" href="/Frontend/Webpages/AdminPage.html">back</a>
+                </nav>
+            </nav>
+        </header>
+        <main class="mid">
+                <h1>Generate Report for Database Tables</h1>
+                <div class="info"></div>
+        </main>
+        <script src="/Backend/JavaScript/ReportGen.js"></script>
     </body>
 </html>

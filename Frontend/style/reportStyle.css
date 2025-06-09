@@ -31,6 +31,10 @@
     text-wrap: inherit;
     font-size: 50px;
 }
+.mid h1{
+    text-align: center;
+    font-size: 50px;
+}
 .info {
     display: flex;
     flex-wrap: wrap;
@@ -93,3 +97,18 @@
     color: #424141; 
     list-style-position: inside;
 }
+
+.summary-label {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.summary-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0074D9;
+}
+
+
