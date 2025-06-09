@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(user => {
 
         if (loginLink) {
-        loginLink.innerHTML = `<div style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 8px 12px; border-radius: 10px; background: white;f margin: auto;">
+        loginLink.innerHTML = `<div style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 8px 12px; border-radius: 10px; margin: auto;">
                 <img src="/Frontend/images/profilePic.png" style="image-rendering: pixelated; border-radius: 100px; height: 70px;background-color:${user.user_colour};">
                 </div>`;
 
