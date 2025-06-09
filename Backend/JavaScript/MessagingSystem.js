@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         chatPartners[userId].forEach(msg => {
             const msgDiv = document.createElement("div")
-            msgDiv.className = `message ${msg.sender === currentUser.user_id ? "sent" : "received"}`
+            msgDiv.className = `message ${msg.sender == currentUser.user_id ? "sent" : "received"}`
             msgDiv.textContent = msg.message
             messageBox.appendChild(msgDiv)
         });
