@@ -63,19 +63,6 @@
     color: black;
     font-weight: bolder;
 }
-@keyframes float{
-    0%{
-
-    }
-    50%{
-    }
-    100%{
-        
-        background-color: #196275;
-        box-shadow: none;
-    }
-}
-
 .backdrop {
     width: 95%;
     max-width: 700px;
@@ -118,34 +105,24 @@
 }
 .itemBox {
     display: inline-block;
-    text-decoration: none;
-    color: black;
-    text-decoration: none;
     width: 250px;
     height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
-.itemBox:hover{
-    animation-duration:0.2s;
-    animation-name: floatimg;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-}
-@keyframes floatimg{
-    0%{
-
-    }
-    50%{
-    }
-    100%{
-        box-shadow: 0px 10px 30px black;
-        border-radius: 7px;
-    }
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    box-shadow: none;
 }
 
+.itemBox:hover {
+    box-shadow: 0px 10px 30px black;
+    border-radius: 10px;
+    transform: translateY(-5px);
+}
 .content {
     image-rendering: pixelated;
     background-image: url("/Frontend/images/loginimg.png");
@@ -199,16 +176,16 @@
     font-size: 15px;
 }
 .menuToggle img {
-  width: 55px;
-  height: auto;
-  display: block;
+    width: 55px;
+    height: auto;
+    display: block;
 }
 .menuToggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px 10px;
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 10px;
 }
 
 
@@ -223,7 +200,7 @@
         width: 30%;
     }
     .backdrop{
-            max-width: 490px;
+        max-width: 490px;
     }
     .areabg {
         background-image: url("/Frontend/images/loginimgTest.png");
@@ -232,15 +209,15 @@
         font-size: 17px;
     }
     .nav1 {
-    display: none;
-    position: fixed;
-    top: 11%;
-    right: 3%;
-    background: white;
-    width: 200px;
-    box-shadow: 0 2px 50px black;
-    flex-direction: column;
-    z-index: 999;
+        display: none;
+        position: fixed;
+        top: 11%;
+        right: 3%;
+        background: white;
+        width: 200px;
+        box-shadow: 0 2px 50px black;
+        flex-direction: column;
+        z-index: 999;
   }
 
   .menuToggle {
