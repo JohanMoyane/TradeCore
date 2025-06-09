@@ -85,13 +85,13 @@ h1{
 }
 .content h1 {
     margin: 0;
-    font-size: 40px;
+    font-size: 30px;
     color: #353333;
 }
 
 .content p {
-    padding: 60px;
-    font-size: 45px;
+    padding: 120px;
+    font-size: 40px;
     color: #424141;
     text-align: center;
 }
