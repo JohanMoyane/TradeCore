@@ -36,8 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 pfp.src = "/Frontend/images/profilePic.png"
                 pfp.alt = "user picture"
                 pfp.style.backgroundColor = user.colour
-                pfp.style.width = "30px"
-                pfp.style.height = "30px"
+                pfp.style.width = "50px"
+                pfp.style.height = "50px"
+                pfp.style.borderRadius = "100px"
+                pfp.style.imageRendering = "pixelated"
+
 
                 li.appendChild(pfp)
                 li.appendChild(document.createTextNode(" " + user.username))
@@ -70,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     msgDiv.className = `message ${isCurrentUser ? "sent" : "received"}`
                     msgDiv.innerHTML = `
                         <div class="msgHeader">
-                            <img src="/Frontend/images/profilePic.png" style="background-color:${sender.colour}" alt="MissingProfile" class="msgPfp">
+                            <img src="/Frontend/images/profilePic.png" style="background-color:${sender.colour}; height:70px;border-radius:100px" alt="MissingProfile" class="msgPfp">
                             <span class="msgUsername">${sender.username}</span>
                         </div>
                         <div class="msgText">${msg.text_msg}</div>
