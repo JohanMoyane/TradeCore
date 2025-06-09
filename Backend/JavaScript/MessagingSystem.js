@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="msgHeader">
                             <img src="/Frontend/images/profilePic.png" style="background-color:${sender.colour}; height:70px;border-radius:100px" alt="MissingProfile" class="msgPfp">
                         </div>
-                        <div class="msgText" style="color:black">${msg.text_msg}</div>
+                        <div class="msgText">${msg.text_msg}</div>
                     `
                     messageBox.appendChild(msgDiv)
                 })

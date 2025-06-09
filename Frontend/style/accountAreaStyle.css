@@ -200,6 +200,7 @@ a{
 }
 
 .message.received {
+    color: black;
     background-color: #ececec;
     align-self: flex-start;
     float: left;
