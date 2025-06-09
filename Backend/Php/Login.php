@@ -1,4 +1,11 @@
 <?php
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path' => '/',
+    'secure' => isset($_SERVER['HTTPS']),
+    'httponly' => true,
+    'samesite' => 'Lax',
+]);
 session_start();
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Pragma: no-cache");
@@ -7,7 +14,6 @@ define("BASE_PATH", dirname(__DIR__, 2));
 require (BASE_PATH . "/Backend/Php/Database.php");
 
 try {
-
     $email = $_POST["eText"] ?? null;
     $password = $_POST["pText"] ?? null;
 
