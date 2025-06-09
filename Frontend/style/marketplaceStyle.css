@@ -217,8 +217,8 @@
         width: 200px;
         box-shadow: 0 2px 50px black;
         flex-direction: column;
-        z-index: 999;
-    }
+        z-index: 10;
+  }
 
     .menuToggle {
         display: block;
@@ -233,6 +233,6 @@
 
     .nav1 a, .nav1 .sbutton {
         padding: 12px 20px;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #b7b7b7;
     }
 }

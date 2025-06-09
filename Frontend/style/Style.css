@@ -141,7 +141,7 @@ a{
     width: 200px;
     box-shadow: 0 2px 50px black;
     flex-direction: column;
-    z-index: 999;
+    z-index: 10;
   }
 
   .menuToggle {
