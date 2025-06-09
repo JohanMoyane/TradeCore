@@ -51,19 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 const sellers = data.filter(user => user.role === "seller").length
                 const admins = data.filter(user => user.role === "admin").length
                 return [
-                    { label: "Total Users", value: data.length },
-                    { label: "Total Buyers", value: buyers },
-                    { label: "Total Sellers", value: sellers },
-                    { label: "Total Admins", value: admins }
+                    { label: "Total Users:", value: data.length },
+                    { label: "Total Buyers:", value: buyers },
+                    { label: "Total Sellers:", value: sellers },
+                    { label: "Total Admins:", value: admins }
                 ]
             case "item":
                 const totalSales = data.reduce((sum, item) => {
                     const price = parseFloat(item.item_price.replace(/[^\d.]/g, ""))
                     return sum + (isNaN(price) ? 0 : price)
                 }, 0).toFixed(2)
-                return [{ label: "Estimated Sale Potential", value: `R${totalSales}` }]
+                return [{ label: "Estimated Sale Potential:", value: `R${totalSales}` }]
             case "wishlist":
-                return [{ label: "Wishlist Entries", value: data.length }]
+                return [{ label: "Wishlist Entries:", value: data.length }]
             default:
                 return [{ label: table, value: "N/A" }]
         }
