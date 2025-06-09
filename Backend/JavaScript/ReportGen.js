@@ -9,20 +9,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const results = []
 
-    (async () => {
+    ;(async () => {
         for (const [table, url] of Object.entries(endpoints)) {
             try {
                 const fetchingData = await fetch(url)
                 const data = await fetchingData.json()
-                const entry = processTableData(table, data)
-                results.push(entry)
+                const entries = processTableData(table, data)
+                results.push(...entries)
             } catch (error) {
                 console.error(`Failed to load ${table}:`, error)
                 results.push({ label: `Error loading ${table}`, value: "N/A" })
             }
         }
 
-        results.forEach(GeneratedInfo => {
+        results.forEach(info => {
             const box = document.createElement("div")
             box.className = "itemBox infoBox"
 
@@ -31,11 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const heading = document.createElement("h1")
             heading.className = "infoHeading"
-            heading.textContent = GeneratedInfo.label
+            heading.textContent = info.label
 
             const value = document.createElement("p")
             value.className = "infoText"
-            value.textContent = GeneratedInfo.value
+            value.textContent = info.value
 
             content.appendChild(heading)
             content.appendChild(value)
@@ -43,26 +43,29 @@ document.addEventListener("DOMContentLoaded", () => {
             infoBox.appendChild(box)
         })
     })()
+
     function processTableData(table, data) {
         switch (table) {
             case "users":
-                return { label: "Total Users", value: data.length }
-            case "buyers":
-                return { label: "Total Buyers", value: data.filter(user => user.role === "buyer").length }
-            case "sellers":
-                return { label: "Total Sellers", value: data.filter(user => user.role === "seller").length }
-            case "administrator":
-                return { label: "Total Admins", value: data.filter(user => user.role === "administrator").length }
+                const buyers = data.filter(user => user.role === "buyer").length
+                const sellers = data.filter(user => user.role === "seller").length
+                const admins = data.filter(user => user.role === "admin").length
+                return [
+                    { label: "Total Users", value: data.length },
+                    { label: "Total Buyers", value: buyers },
+                    { label: "Total Sellers", value: sellers },
+                    { label: "Total Admins", value: admins }
+                ]
             case "item":
                 const totalSales = data.reduce((sum, item) => {
                     const price = parseFloat(item.item_price.replace(/[^\d.]/g, ""))
                     return sum + (isNaN(price) ? 0 : price)
                 }, 0).toFixed(2)
-                return { label: "Estimated Sale potential", value: `R${totalSales}` }
+                return [{ label: "Estimated Sale Potential", value: `R${totalSales}` }]
             case "wishlist":
-                return { label: "Wishlist Entries", value: data.length }
+                return [{ label: "Wishlist Entries", value: data.length }]
             default:
-                return { label: table, value: "N/A" }
+                return [{ label: table, value: "N/A" }]
         }
     }
 })
