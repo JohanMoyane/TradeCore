@@ -7,6 +7,9 @@
     gap: 15px;
     transform: translate(-11%, -50%);
 }
+h1{
+    color: white;
+}
 
 .nav1 a{
     text-decoration: none;
@@ -99,16 +102,16 @@
 }
 
 .infoHeading {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
-  font-weight: 500;
+    font-size: 120px;
+    color: black;
+    margin-bottom: 10px;
+    font-weight: 500;
 }
 
 .infoText {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #0074D9;
+    font-size: 80px;
+    font-weight: 700;
+    color: #353333;
 }
 
 
