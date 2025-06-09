@@ -15,7 +15,7 @@ require (BASE_PATH . "/Backend/Php/Database.php");
 
 try {
     $senderID = $_SESSION["user_id"];
-    $message = $_POST["message"];
+    $message = $_POST["concern"];
 
     if (empty($message)) {
         throw new Exception("Missing message");

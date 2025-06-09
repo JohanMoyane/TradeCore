@@ -19,6 +19,7 @@
                 <img src="/Frontend/images/profilePic.png" alt="dd">
                 <h1>Username</h1>
                 </div>
+            <button class="menuToggle" aria-label="Open menu"><img src="/Frontend/images/menupopup.png"></button>
             <nav class="nav1">
                 <a class="subBar" href="/Frontend/Webpages/Marketplace.html">Marketplace</a>
                 <a class="subBar" href="/Frontend/Webpages/Help Center.html">Help Center</a>
@@ -44,6 +45,19 @@
         </footer>
         </footer>
         <script src="/Backend/JavaScript/loginData.js"></script>
+        <script>
+            const menuToggle = document.querySelector(".menuToggle");
+            const nav = document.querySelector(".nav1");
 
+            menuToggle.addEventListener("click", () => {
+                nav.classList.toggle("active")
+            })
+
+            document.addEventListener("click", (clicker) => {
+                if (!nav.contains(clicker.target) && !menuToggle.contains(clicker.target)) {
+                nav.classList.remove("active")
+                }
+            })
+        </script>   
     </body>
 </html>
