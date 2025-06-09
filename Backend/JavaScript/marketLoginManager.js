@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const helpCLink = document.querySelector(".subBar")
     const loginLink = document.querySelector(".sbutton")
+    const userProfile = document.getElementById("userProfile");
 
     fetch("/Backend/Php/sessionData.php")
     .then(userDatas => {
@@ -13,9 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(user => {
 
         if (loginLink) {
-        loginLink.innerHTML = `<div style="display: flex; flex-wrap: wrap; flex-direction: row; align-items: center; position: absolute; top: 40%; right: 10px; transform: translate(-51%, -50%);">
-                <img src="/Frontend/images/profilePic.png" style="image-rendering: pixelated; border-radius: 100px; height: 70px;background-color:${user.user_colour};">
-                </div>`;
+        userProfile.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="/Frontend/images/profilePic.png"
+                     style="image-rendering: pixelated; border-radius: 100px; height: 50px; background-color:${user.user_colour};">
+            </div>`;
 
         helpCLink.remove()
         const role = user.role
