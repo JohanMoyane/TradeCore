@@ -1,10 +1,10 @@
 <?php
 session_set_cookie_params([
-    'lifetime' => 0,
-    'path' => '/',
-    'secure' => isset($_SERVER['HTTPS']),
-    'httponly' => true,
-    'samesite' => 'Lax',
+    "lifetime" => 0,
+    "path" => "/",
+    "secure" => isset($_SERVER["HTTPS"]),
+    "httponly" => true,
+    "samesite" => "Lax",
 ]);
 session_start();
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
