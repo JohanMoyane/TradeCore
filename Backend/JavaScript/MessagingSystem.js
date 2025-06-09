@@ -23,12 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
             for (const user of users) {
                 usersMap[user.user_UID] = user
 
-                if (user.user_UID == currentUser.user_id) continue
-
                 const res = await fetch(`/Backend/Php/gettingMessages.php?sender_ID=${currentUser.user_id}&receiver_ID=${user.user_UID}`)
                 const messages = await res.json()
 
-                if (!messages.length) continue
 
                 const li = document.createElement("li")
 
