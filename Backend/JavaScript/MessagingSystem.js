@@ -74,9 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     msgDiv.innerHTML = `
                         <div class="msgHeader">
                             <img src="/Frontend/images/profilePic.png" style="background-color:${sender.colour}; height:70px;border-radius:100px" alt="MissingProfile" class="msgPfp">
-                            <span class="msgUsername">${sender.username}</span>
                         </div>
-                        <div class="msgText">${msg.text_msg}</div>
+                        <div class="msgText" style="color:black">${msg.text_msg}</div>
                     `
                     messageBox.appendChild(msgDiv)
                 })
@@ -95,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return
         }
 
-        fetch("/Backend/Php/sendingMessage.php", {
+        fetch("/Backend/Php/sendingMessages.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams({
