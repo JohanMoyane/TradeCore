@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(usersData => usersData.json())
         .then(data => {
             if (!data.user_id) {
-                alert("You are not logged in.")
                 throw new Error("No session user.")
             }
             currentUser = data
