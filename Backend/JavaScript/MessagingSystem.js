@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error("No session user.")
             }
             currentUser = data
-            return fetch("/Backend/Php/getUsers.php")
+            return fetch("/Backend/Php/userData.php")
         })
         .then(usersData => usersData.json())
         .then(users => {

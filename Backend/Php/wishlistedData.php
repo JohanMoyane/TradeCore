@@ -1,5 +1,4 @@
 <?php
-define("BASE_PATH", dirname(__DIR__, 2));
 require (BASE_PATH . "/Backend/Php/Database.php");
 header("Content-Type: application/json");
 ini_set("display_errors", 1);
