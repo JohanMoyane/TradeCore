@@ -57,8 +57,8 @@ h1{
 
 .itemBox {
     text-decoration: none;
-    width: 284px;
-    height: 284px;
+    width: 384px;
+    height: 384px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,9 +90,9 @@ h1{
 }
 
 .content p {
-    padding-top: 60px;
+    padding-top: 110px;
     font-size: 40px;
-    color: #4f5254;
+    color: black;
     text-align: center;
 }
 .content ul{
