@@ -33,20 +33,20 @@ fetch("/Backend/Php/sessionData.php")
                 const borderBox = document.createElement("div")
                 borderBox.className = "borderbox"
 
-                const img = document.createElement("img")
-                img.src = "/Frontend/images/profilePic.png"
-                img.alt = "user picture"
+                const pfp = document.createElement("img")
+                pfp.src = "/Frontend/images/profilePic.png"
+                pfp.alt = "user picture"
                 
                 const frameOverlay = document.createElement("div")
                 frameOverlay.className = "frameOverlay"
 
-                borderBox.appendChild(img)
+                borderBox.appendChild(pfp)
 
-                const itemName = document.createElement("h2")
-                itemName.textContent = user.username
+                const userName = document.createElement("h2")
+                userName.textContent = user.username
 
                 content.appendChild(borderBox)
-                content.appendChild(itemName)
+                content.appendChild(userName)
                 anchor.appendChild(content)
                 block.appendChild(anchor)
         })

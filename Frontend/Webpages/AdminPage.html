@@ -31,8 +31,26 @@
         <main class="mid">
                 <h1 style="text-align: center;">Welcom to your Dashboard:</h1>
                  <div class="info"></div>
+                <div class="messagingBoard">
+                    <h2 class="subheading">Messages</h2>
+                    <div class="messageContainer">
+                        <div class="contactList">
+                            <h3 class="titleText">Your Chats</h3>
+                            <ul class="userList"></ul>
+                        </div>
+                        <div class="chatArea">
+                            <h3 class="titleText">Select a chat</h3>
+                            <div class="messageBox"></div>
+                            <div class="messageInputArea">
+                                <input type="text" placeholder="Type a message..." class="messageInput">
+                                <button id="sendBtn" class="sbutton"><img src="/Frontend/images/sendIcont.png"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <script src="/Backend/JavaScript/loginData.js" defer></script>
-                 <script src="/Backend/JavaScript/AdminContent.js"></script>
+                <script src="/Backend/JavaScript/AdminContent.js"></script>
+                <script src="/Backend/JavaScript/MessagingSystem.js"></script>
         </main>
     </body>
 </html>
