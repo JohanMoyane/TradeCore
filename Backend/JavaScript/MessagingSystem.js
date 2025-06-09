@@ -20,11 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
             return fetch("/Backend/Php/userData.php")
         })
         .then(usersData => usersData.json())
-        .then(users => {
-            users.forEach(user => {
+        .then(async users => {
+            for (const user of users) {
                 usersMap[user.user_UID] = user
 
-                if (user.user_UID == currentUser.user_id) return
+                if (user.user_UID == currentUser.user_id) continue
+
+                const res = await fetch(`/Backend/Php/gettingMessages.php?sender_ID=${currentUser.user_id}&receiver_ID=${user.user_UID}`)
+                const messages = await res.json()
+
+                if (!messages.length) continue
 
                 const li = document.createElement("li")
 
@@ -32,18 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 pfp.src = "/Frontend/images/profilePic.png"
                 pfp.alt = "user picture"
                 pfp.style.backgroundColor = user.colour
+                pfp.style.width = "30px"
+                pfp.style.height = "30px"
 
                 li.appendChild(pfp)
                 li.appendChild(document.createTextNode(" " + user.username))
 
                 li.addEventListener("click", () => {
-                    selectedUser = user.user_UID;
+                    selectedUser = user.user_UID
                     chatTitle.textContent = `Chat with ${user.username}`
                     loadMessages(currentUser.user_id, selectedUser)
                 })
 
                 userList.appendChild(li)
-            })
+            }
         })
         .catch(error => {
             console.error("Error:", error)
@@ -59,12 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 messages.forEach(msg => {
                     const msgDiv = document.createElement("div")
                     const sender = usersMap[msg.sender_ID]
-                    const isCurrentUser = msg.sender_ID == currentUser.user_id;
+                    const isCurrentUser = msg.sender_ID == currentUser.user_id
 
                     msgDiv.className = `message ${isCurrentUser ? "sent" : "received"}`
                     msgDiv.innerHTML = `
                         <div class="msgHeader">
-                            <img src="/Frontend/images/profilePic.png" style="background-color:${sender.colour}" alt="pfp" class="msgPfp">
+                            <img src="/Frontend/images/profilePic.png" style="background-color:${sender.colour}" alt="MissingProfile" class="msgPfp">
                             <span class="msgUsername">${sender.username}</span>
                         </div>
                         <div class="msgText">${msg.text_msg}</div>
@@ -97,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(usersData => usersData.json())
         .then(callback => {
             if (callback.success) {
-                loadMessages(selectedUser)
+                loadMessages(currentUser.user_id, selectedUser)
                 messageInput.value = ""
             } else {
                 alert("Message failed.")
