@@ -36,6 +36,8 @@ try {
         $datainsert->execute();
     }
 
+    header("Location: /Frontend/Webpages/Contact Page.html");
+
 
 } catch (Exception $error) {
     echo '<!DOCTYPE html>
