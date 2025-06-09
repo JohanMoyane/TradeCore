@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const infoBox = document.querySelector(".info")
 
     const endpoints = {
-        users: "/Backend/Php/getUsers.php",
-        item: "/Backend/Php/getItems.php",
-        wishlist: "/Backend/Php/getWishlist.php"
+        users: "/Backend/Php/userData.php",
+        item: "/Backend/Php/marketplaceItemData.php",
+        wishlist: "/Backend/Php/wishlistedData.php"
     }
 
     const results = []
