@@ -36,7 +36,7 @@ try {
         $datainsert->execute();
     }
 
-    header("Location: /Frontend/Webpages/Contact Page.html");
+    header("Location: /Frontend/Webpages/Help Center.html");
 
 
 } catch (Exception $error) {
