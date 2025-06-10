@@ -32,11 +32,12 @@ try {
     }
 
     $receiverID = $sellerData["seller_ID"];
-    include BASE_PATH . ("/Backend/Php/wishlistAdder.php");
+
     $datainsert = $conn->prepare("INSERT INTO messages (sender_ID, receiver_ID, text_msg) VALUES (?, ?, ?)");
     $datainsert->bind_param("iis", $senderID, $receiverID, $message);
     $datainsert->execute();
-    header("Location: /Frontend/Webpages/Marketplace.html");
+
+    include BASE_PATH . ("/Backend/Php/wishlistAdder.php");
 
 } catch (Exception $error) {
     echo '<!DOCTYPE html>
